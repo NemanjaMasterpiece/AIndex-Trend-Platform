@@ -1,0 +1,12 @@
+body {
+    margin: 0;
+    background-color: #1a1a1a;
+    font-family: 'Roboto Condensed', sans-serif;
+    color: white;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2rem;
+    margin: 1rem 0;
+}

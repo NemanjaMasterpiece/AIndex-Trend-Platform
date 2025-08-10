@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'trends/article_list.css' %}">
+    <link rel="stylesheet" href="{% static "trends/lightdarkmode.css" %}">
+    <link rel="stylesheet" href="{% static "trends/includes/header.css" %}">
+{% endblock %}
+
+{% block page_title %}Svi članci{% endblock %}
+
+{% block content %}
+    <div class="article-list-container">
+        <h1 id="firsth1">Članci o Generativnoj Veštačkoj Inteligenciji</h1>
+        <form method="GET" class="filter-form">
+            <input type="text" name="query" placeholder="Pretraga..." value="{{ query }}">
+            <select name="filter_type">
+                <option value="latest" {% if filter_type == 'latest' %}selected{% endif %}>Najnoviji</option>
+                <option value="important" {% if filter_type == 'important' %}selected{% endif %}>Važni</option>
+            </select>
+            <button type="submit">Filtriraj</button>
+        </form>
+
+        <form method="POST" action="{% url 'update_one_article' %}">
+            {% csrf_token %}
+            <button id="update-button">Ažuriraj članke</button>
+        </form>
+
+        <script src="{% static 'trends/js/scriptadd.js' %}"></script>
+
+        <ul>
+            {% for article in articles %}
+                <li id="libox">
+                    <a href="{% url 'article_detail' article.id %}">{{ article.title }}</a>
+                    <p>{{ article.published_date }} | Važnost: {{ article.importance }}</p>
+                    <p><a href="{{ article.link }}" target="_blank">Pročitaj originalni članak</a></p>
+                </li>
+            {% empty %}
+                <p>Nema pronađenih članaka.</p>
+            {% endfor %}
+        </ul> 
+    </div>
+{% endblock %}

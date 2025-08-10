@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static "trends/podaci.css" %}">
+    <link rel="stylesheet" href="{% static "trends/includes/header.css" %}">
+    <link rel="stylesheet" href="{% static "trends/lightdarkmode.css" %}">
+{% endblock %}
+
+{% block page_title %}
+    Podaci
+{% endblock %}
+
+{% block content %}
+<div class="content-container">
+    <div class="image-container">
+        <img src="{% static 'images/chatimage.png' %}" alt="AIndex">
+    </div>
+    <div class="text-container">
+        <h1 class="main-title">Nešto o AIndex-u</h1>
+        <p class="description1">
+            AIndex je platforma koja omogućava korisnicima da prate najnovije trendove u oblasti veštačke inteligencije. Naš cilj je da pružimo pregled najvažnijih inovacija i istraživanja iz AI sveta na jednom mestu.
+        </p>
+
+        <h1 class="sub-title1">Zašto baš AIndex ?</h1>
+        <p class="description2">
+            AIndex pruža brz i jednostavan pristup najrelevantnijim informacijama, uz jasan pregled značaja svake teme. Fokusiramo se na kvalitetne izvore i olakšavamo korisnicima da ostanu informisani o AI trendovima.
+        </p>
+
+        <h1 class="sub-title2">Šta je veštačka inteligencija ?</h1>
+        <p class="description3">
+            Veštačka inteligencija (AI) je oblast računarstva koja omogućava mašinama da uče iz iskustva, prilagođavaju se novim podacima i izvršavaju zadatke slične ljudima. AI se koristi u raznim industrijama i transformiše svet kroz automatizaciju, generativne modele i još mnogo toga.
+        </p>
+    </div>
+</div>
+{% endblock %}

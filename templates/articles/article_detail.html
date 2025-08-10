@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'trends/article_detail.css' %}">
+    <link rel="stylesheet" href="{% static "trends/includes/header.css" %}">
+{% endblock %}
+
+{% block page_title %}{{ article.title }}{% endblock %}
+
+{% block content %}
+    <div class="article-detail-container">
+        <h1>{{ article.title }}</h1>
+        <p>{{ article.published_date }} | Važnost: {{ article.importance }}</p>
+        <p id="justify-p">{{ article.content }}</p>
+        <p id="detail-p"><a href="{{ article.link }}" target="_blank">Pročitaj originalni članak</a></p>
+    </div>
+{% endblock %}
